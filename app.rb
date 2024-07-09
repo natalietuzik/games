@@ -1,4 +1,4 @@
 require_relative "games"
 
-games = Game.new
+games = Games.new
 games.run
