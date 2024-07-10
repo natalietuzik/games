@@ -1,4 +1,4 @@
-class Game
+class Games
   attr_accessor :title, :platform
 
   def initialize(title, platform)

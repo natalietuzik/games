@@ -1,4 +1,5 @@
 require_relative "games"
+require_relative "database"
 
-games = Games.new
-games.run
+database = Database.new
+database.run
