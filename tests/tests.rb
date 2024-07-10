@@ -1,32 +1,19 @@
 require 'minitest/autorun'
-require './app'
+require   './app'
 
-class tests < Minitest::tests
-  def tests_run
-    assert_output("Welcome to your Games Database!\n") { run }
-  end
-end
+class MyTest < Minitest::Test
+  def test_user_input
+    # Simulate user input by replacing $stdin with StringIO
+    simulated_user_input = StringIO.new
+    $stdin = simulated_user_input
 
-def run
-  loop do
-    puts "\n"
-    puts "Welcome to your Games Database!"
-    puts "1. Add a game"
-    puts "2. List all games"
-    puts "3. Exit"
-    print "Choose an option: "
-    option = gets.chomp.to_i
-    puts "\n"
-    case option
-    when 1
-      add_game
-    when 2
-      list_games
-    when 3
-      puts "Thank you for visiting your Games Database. Goodbye!"
-      break
-    else
-      puts "Invalid option. Please try again."
-    end
+    # Call the method that we are testing
+    output = database.run
+
+    # Restore $stdin so other tests are not affected by replacement
+    $stdin = STDIN
+
+    # Assert the expected outcome of the test
+    assert_equal "expected output", output
   end
 end
