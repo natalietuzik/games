@@ -8,7 +8,7 @@ class MyTest < Minitest::Test
     $stdin = simulated_user_input
 
     # Call the method that we are testing
-    output = database.run
+    output = Database.run
 
     # Restore $stdin so other tests are not affected by replacement
     $stdin = STDIN

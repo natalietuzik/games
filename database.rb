@@ -36,7 +36,7 @@ class Database
     title = gets.chomp
     print "Enter platform name: "
     platform = gets.chomp
-    @games << Games.new(title, platform)  # Corrected from @books to @games
+    @games << Games.new(title, platform)  # Corrected from @books to @games (used example code for help on this section)
     puts "Game added successfully!"
   end
 
